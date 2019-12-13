@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  hw:
+    build: .
+    ports:
+      - "5000:5000"
+    deploy: 
+      replicas: 2
+    secrets:
+      - source: credential
+        target: app.py
+
+secrets:
+  credential:
+    file: ./app.py
